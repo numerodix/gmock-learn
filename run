@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -eux
+
+BUILD_DIR=build
+
+if [ ! -d $BUILD_DIR ]; then
+    mkdir -p $BUILD_DIR
+fi
+
+cd $BUILD_DIR
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+make VERBOSE=1
+
+# need || true in case any test program has non-zero exit
+./assert_test $@ || true
+./parameterize_test $@ || true
+./mock_dyi_test $@ || true
+./mock_unconfigured_test $@ || true
