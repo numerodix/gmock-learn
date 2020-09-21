@@ -1,5 +1,4 @@
 #include "_main.skel"
-using ::testing::NiceMock;
 
 class Boat {
 public:

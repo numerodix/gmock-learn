@@ -17,3 +17,4 @@ make VERBOSE=1
 ./parameterize_test $@ || true
 ./mock_dyi_test $@ || true
 ./mock_unconfigured_test $@ || true
+./mock_behavior_test $@ || true
